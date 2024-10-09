@@ -13,7 +13,7 @@
 volatile char usart_received_char;
 
 /*
-* Rutina de atención a las interrupciones del USART
+* Rutina de atenciï¿½n a las interrupciones del USART
 */
 ISR (USART_RX_vect)
 {
@@ -34,10 +34,10 @@ unsigned char usart_receive( void )
 /*
 * Transmite el dato que se pasa como argumento
 */
-void usart_transmit( uint8_t data )
+void usart_transmit( unsigned int data )
 {
-  while ((UCSR0A & 0x20) == 0x00);  // Espera hasta que el buffer del transmisor está vacío (UDRE=1)
-  UDR0 = data; // Cuando el buffer está vacío, coloca el dato en el registro UDR
+  while ((UCSR0A & 0x20) == 0x00);  // Espera hasta que el buffer del transmisor estï¿½ vacï¿½o (UDRE=1)
+  UDR0 = data; // Cuando el buffer estï¿½ vacï¿½o, coloca el dato en el registro UDR
 }
 
 /*
@@ -59,10 +59,10 @@ void usart_transmit_string( char s[] )
 */
 void init_usart(unsigned int baudrate)
 {
-	//Escoge modo de reloj: UMSEL=0 asíncrono, UMSEL=1 síncrono
-	UCSR0C &= (~(1<<UMSEL00) & ~(1<<UMSEL01)); // bit UMSEL = 0 asíncrono
+	//Escoge modo de reloj: UMSEL=0 asï¿½ncrono, UMSEL=1 sï¿½ncrono
+	UCSR0C &= (~(1<<UMSEL00) & ~(1<<UMSEL01)); // bit UMSEL = 0 asï¿½ncrono
 	
-	//En modo asíncrono escoge la velocidad: U2X=0 normal, U2X=1 doble
+	//En modo asï¿½ncrono escoge la velocidad: U2X=0 normal, U2X=1 doble
 	UCSR0A = (1<<U2X0); // bit U2X = 1 doble
 	
 	//Baudrate ejemplo: fosc = 16 Mhz, U2Xn= 1, BaudRate = 9600, entonces UBRR= 207
@@ -70,7 +70,7 @@ void init_usart(unsigned int baudrate)
 	UBRR0H = (unsigned char) (baudrate>>8); // Escribe (MSB) en la parte alta del registro
 	UBRR0L = (unsigned char) (baudrate); //Escribe (LSB) el valor en la parte baja
 	
-	//Tamaño de los datos
+	//Tamaï¿½o de los datos
 	UCSR0C = ((1<<UCSZ00) | (1<<UCSZ01)); //Selecciona registro,8 bits para longitud de datos
 	
 	//Habilitar el transmisor y receptor
@@ -80,7 +80,7 @@ void init_usart(unsigned int baudrate)
 	//UCSRC = (1<<USBS);
 	
 	sei(); //Activa interrupciones generales
-	//Para activar/desactivar las interrupcines, sólo quitar/poner el símbolo de comentarios
-	UCSR0B |= (1<<RXCIE0);	//Activa interrupciones de "recepción completada" (RXCIE=1)
-							//y "registro de datos vacío" (UDRIE=1)
+	//Para activar/desactivar las interrupcines, sï¿½lo quitar/poner el sï¿½mbolo de comentarios
+	UCSR0B |= (1<<RXCIE0);	//Activa interrupciones de "recepciï¿½n completada" (RXCIE=1)
+							//y "registro de datos vacï¿½o" (UDRIE=1)
 }
