@@ -6,12 +6,16 @@
  */ 
 
 #include "usart.h"
+#include "lcd_i2c.h"
 
 int main(void)
 {
-    init_usart(207);
+    init_usart(16);
+	lcd_i2c_init();
+	lcd_i2c_write_string("Todos reprobados");
+	
     while (1) 
     {
-    }
+		    }
 }
 

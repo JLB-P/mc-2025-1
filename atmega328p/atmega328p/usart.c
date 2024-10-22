@@ -34,7 +34,7 @@ unsigned char usart_receive( void )
 /*
 * Transmite el dato que se pasa como argumento
 */
-void usart_transmit( uint8_t data )
+void usart_transmit( unsigned int data )
 {
   while ((UCSR0A & 0x20) == 0x00);  // Espera hasta que el buffer del transmisor está vacío (UDRE=1)
   UDR0 = data; // Cuando el buffer está vacío, coloca el dato en el registro UDR
