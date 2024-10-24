@@ -79,7 +79,7 @@ void init_usart(unsigned int baudrate)
 	//Habilita 2 bits de paro
 	//UCSRC = (1<<USBS);
 	
-	sei(); //Activa interrupciones generales
+	
 	//Para activar/desactivar las interrupcines, sólo quitar/poner el símbolo de comentarios
 	UCSR0B |= (1<<RXCIE0);	//Activa interrupciones de "recepción completada" (RXCIE=1)
 							//y "registro de datos vacío" (UDRIE=1)
