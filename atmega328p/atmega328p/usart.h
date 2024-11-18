@@ -8,6 +8,9 @@
 
 #ifndef USART_H_
 #define USART_H_
+//Global variables
+volatile char usart_received_char;
+
 void init_usart(unsigned int baudrate);
 unsigned char usart_receive( void );
 void usart_transmit( unsigned int data );

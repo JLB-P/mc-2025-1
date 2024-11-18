@@ -8,17 +8,22 @@
 #include "usart.h"
 #include "lcd_i2c.h"
 #include "adc.h"
+#include "ext_int.h"
+#include "ports.h"
 
 int main(void)
 {
-//    init_usart(16);
-	ADC_WithInterrupt();
-	lcd_i2c_init();
-	lcd_i2c_col_row(4,1);
-	lcd_i2c_write_string("TEMP:");
+	//ADC_WithInterrupt();
+	//lcd_i2c_init();
+	//lcd_i2c_col_row(4,1);
+	//lcd_i2c_write_string("TEMP:");
+	init_usart(207);
+	init_ports();
+	init_ext_int();
 	sei(); //Interrupciones generales
     while (1) 
     {
-		    }
+
+    }
 }
 

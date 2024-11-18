@@ -127,6 +127,12 @@
     <Compile Include="adc.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="ext_int.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ext_int.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="i2c.c">
       <SubType>compile</SubType>
     </Compile>
@@ -139,7 +145,19 @@
     <Compile Include="lcd_i2c.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="leds.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="leds.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ports.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ports.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="usart.c">

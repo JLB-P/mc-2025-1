@@ -9,9 +9,6 @@
 #include <avr/interrupt.h>
 #include "usart.h"
 
-//Global variables
-volatile char usart_received_char;
-
 /*
 * Rutina de atención a las interrupciones del USART
 */
